@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why I Love You 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #e0f7fa);
+      color: #333;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #ffccdd;
+      color: #fff;
+      animation: fadeIn 2s ease-in;
+    }
+    header h1 {
+      font-size: 2.5rem;
+    }
+    .reason {
+      padding: 60px 20px;
+      text-align: center;
+      border-bottom: 2px dashed #ffb6c1;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-in-out;
+    }
+    .reason.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reason h2 {
+      font-size: 2rem;
+      color: #ff4081;
+    }
+    .reason p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    .emoji {
+      font-size: 3rem;
+      transition: transform 0.3s ease;
+    }
+    .emoji:hover {
+      transform: scale(1.3) rotate(10deg);
+    }
+    footer {
+      text-align: center;
+      padding: 40px;
+      background-color: #ffc0cb;
+      color: #fff;
+      animation: fadeIn 2s ease-in 1s;
+    }
+    .heart {
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .button-container {
+      margin-top: 20px;
+    }
+    .surprise-button {
+      background-color: #ff4081;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .surprise-button:hover {
+      background-color: #e91e63;
+    }
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border: 2px solid #ff4081;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      text-align: center;
+    }
+    #popup h3 {
+      margin: 0 0 10px;
+    }
+    #popup button {
+      margin-top: 10px;
+      padding: 6px 12px;
+      border: none;
+      background-color: #ff4081;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>💖 100% Certified Reasons Why I'm Madly in Love With You 💖</h1>
+  </header>
+
+  <section class="reason">
+    <div class="emoji">😍</div>
+    <h2>Reason #1</h2>
+    <p>Your face. Literally unfair. Like, how are you this cute AND mine?</p>
+  </section>
+
+  <section class="reason">
+    <div class="emoji">🧠💬</div>
+    <h2>Reason #2</h2>
+    <p>The way you overthink everything and still somehow end up being perfect.</p>
+  </section>
+
+  <section class="reason">
+    <div class="emoji">🎤🎶</div>
+    <h2>Reason #3</h2>
+    <p>Your voice? Absolute serotonin. I’d listen to you sing even if it was just random hums while brushing your hair.</p>
+  </section>
+
+  <section class="reason">
+    <div class="emoji">🧥💘</div>
+    <h2>Reason #4</h2>
+    <p>You steal my hoodies but somehow you look better in them than I ever did.</p>
+  </section>
+
+  <section class="reason">
+    <div class="emoji">🫂</div>
+    <h2>Reason #5</h2>
+    <p>You’re my safe space. My chaos and my calm. My favorite place to be.</p>
+  </section>
+
+  <footer>
+    <h2>And guess what?</h2>
+    <p>These are just 5 out of a million reasons. I love you endlessly. <span class="heart">❤️</span></p>
+    <p>P.S. Happy Anniversary, baby. Let’s keep driving each other crazy—in the best way possible 😘</p>
+    <div class="button-container">
+      <button class="surprise-button" onclick="showPopup()">Click for a lil' surprise 💌</button>
+    </div>
+  </footer>
+
+  <div id="popup">
+    <h3>You're my forever person 💕</h3>
+    <p>Even if I had to fall in love again, I'd still choose you—every single time.</p>
+    <button onclick="closePopup()">Awww 🥺</button>
+  </div>
+
+  <script>
+    // Scroll animation
+    const reasons = document.querySelectorAll('.reason');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    reasons.forEach(reason => {
+      observer.observe(reason);
+    });
+
+    // Surprise popup
+    function showPopup() {
+      document.getElementById('popup').style.display = 'block';
+    }
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
